@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作業時間記録ツール</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- スキップリンク -->
+    <a href="#main-content" class="skip-link">メインコンテンツにスキップ</a>
+    
+    <div id="app" role="application" aria-label="作業時間記録ツール">
+        <!-- ヘッダー -->
+        <header class="header" role="banner">
+            <h1 id="app-title">作業時間記録ツール</h1>
+            <div class="header-controls" role="toolbar" aria-label="ヘッダーコントロール">
+                <button id="test-btn" class="btn btn-info" aria-label="テスト実行">テスト実行</button>
+                <button id="settings-btn" class="btn btn-secondary" aria-label="設定を開く">設定</button>
+            </div>
+        </header>
+
+        <!-- オーダー選択エリア -->
+        <section class="order-section" role="region" aria-labelledby="order-section-title">
+            <div class="section-header">
+                <h2 id="order-section-title">オーダー選択</h2>
+                <button id="add-order-btn" class="btn btn-primary" aria-label="新規オーダーを作成">+ 新規オーダー</button>
+            </div>
+            <div id="order-list" class="order-list" role="listbox" aria-label="オーダー一覧" aria-describedby="order-help">
+                <!-- オーダー一覧がここに表示される -->
+            </div>
+            <div id="order-help" class="sr-only">オーダーを選択するには、リストからオーダーをクリックまたはEnterキーを押してください。編集するには右クリックまたはダブルクリックしてください。</div>
+        </section>
+
+        <!-- アクティビティボタンエリア -->
+        <section class="activity-section" role="region" aria-labelledby="activity-section-title">
+            <div class="section-header">
+                <h2 id="activity-section-title">アクティビティ</h2>
+                <button id="add-activity-btn" class="btn btn-primary" disabled aria-label="新規アクティビティを作成">+ 新規アクティビティ</button>
+            </div>
+            <div id="activity-grid" class="activity-grid" role="grid" aria-label="アクティビティ一覧" aria-describedby="activity-help">
+                <!-- アクティビティボタンがここに表示される -->
+            </div>
+            <div id="activity-help" class="sr-only">アクティビティを開始するには、ボタンをクリックまたはEnterキーを押してください。編集するには右クリックまたはダブルクリックしてください。</div>
+        </section>
+
+        <!-- 現在の作業表示 -->
+        <section class="timer-section" role="region" aria-labelledby="timer-section-title">
+            <div class="current-work">
+                <h3 id="timer-section-title">現在の作業</h3>
+                <div id="current-activity" class="current-activity" aria-live="polite" aria-atomic="true">
+                    作業を開始してください
+                </div>
+                <div id="timer-display" class="timer-display" aria-live="polite" aria-atomic="true" aria-label="経過時間">
+                    00:00:00
+                </div>
+                <button id="stop-work-btn" class="btn btn-warning" disabled aria-label="現在の作業を終了">作業終了</button>
+            </div>
+        </section>
+
+        <!-- 集計・レポートエリア -->
+        <section class="report-section" role="region" aria-labelledby="report-section-title">
+            <div class="section-header">
+                <h2 id="report-section-title">集計・レポート</h2>
+                <div class="report-controls" role="toolbar" aria-label="レポートコントロール">
+                    <label for="period-select" class="sr-only">集計期間を選択</label>
+                    <select id="period-select" class="period-select" aria-label="集計期間">
+                        <option value="day">日別</option>
+                        <option value="week">週別</option>
+                        <option value="month">月別</option>
+                    </select>
+                    <label for="target-date" class="sr-only">対象日を選択</label>
+                    <input type="date" id="target-date" class="target-date" aria-label="対象日">
+                    <button id="show-history-btn" class="btn btn-info" aria-label="作業履歴を表示">作業履歴</button>
+                    <button id="export-btn" class="btn btn-secondary" aria-label="データをエクスポート">エクスポート</button>
+                    <button id="reset-sessions-btn" class="btn btn-warning" aria-label="作業履歴をリセット">履歴リセット</button>
+                    <button id="reset-all-btn" class="btn btn-danger" aria-label="全データをリセット">全リセット</button>
+                </div>
+            </div>
+            <div id="report-content" class="report-content" id="main-content" role="main" aria-live="polite" aria-label="レポート内容">
+                <!-- レポート内容がここに表示される -->
+            </div>
+        </section>
+    </div>
+
+    <!-- モーダルダイアログ -->
+    <div id="modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-content">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">タイトル</h3>
+                <button id="modal-close" class="modal-close" aria-label="モーダルを閉じる">&times;</button>
+            </div>
+            <div id="modal-content" class="modal-content">
+                <!-- モーダル内容がここに表示される -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/models.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/repository.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/report.js"></script>
+    <script src="js/error-handler.js"></script>
+    <script src="js/performance-optimizer.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/timer-test.js"></script>
+    <script src="js/integration-test.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
