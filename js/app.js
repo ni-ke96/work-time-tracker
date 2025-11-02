@@ -11,6 +11,10 @@ class WorkTimeTrackerApp {
         this.errorHandler = new ErrorHandler(this.uiManager);
         this.performanceOptimizer = new PerformanceOptimizer();
         
+        // インポート機能を初期化
+        this.importService = new ImportService(this.repository);
+        this.importUI = new ImportUI(this.importService, this.uiManager);
+        
         this.selectedOrderId = null;
         this.isInitialized = false;
         

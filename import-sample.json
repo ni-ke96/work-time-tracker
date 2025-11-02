@@ -1,0 +1,38 @@
+{
+  "orders": [
+    {
+      "id": "order_1",
+      "name": "プロジェクト名",
+      "activities": [
+        { "id": "activity_1", "name": "タスク名" },
+        { "id": "activity_2", "name": "別のタスク名" }
+      ]
+    },
+    {
+      "id": "training",
+      "name": "教育",
+      "activities": [
+        { "id": "tra_wbt", "name": "WBT" },
+        { "id": "tra_test", "name": "test" }
+      ]
+    },
+    {
+      "id": "Recruitment",
+      "name": "採用活動",
+      "activities": [
+        { "id": "req_is", "name": "インターンシップ対応" },
+        { "id": "req_mendan", "name": "面談" },
+        { "id": "req_tyousei", "name": "調整作業" }
+      ]
+    },
+    {
+      "id": "others",
+      "name": "その他関節",
+      "activities": [
+        { "id": "oth_thema_talk", "name": "懇談会" },
+        { "id": "oth_orders", "name": "受発注" }
+      ]
+    }
+
+  ]
+}

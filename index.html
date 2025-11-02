@@ -24,7 +24,10 @@
         <section class="order-section" role="region" aria-labelledby="order-section-title">
             <div class="section-header">
                 <h2 id="order-section-title">オーダー選択</h2>
-                <button id="add-order-btn" class="btn btn-primary" aria-label="新規オーダーを作成">+ 新規オーダー</button>
+                <div class="order-controls">
+                    <button id="add-order-btn" class="btn btn-primary" aria-label="新規オーダーを作成">+ 新規オーダー</button>
+                    <button id="import-btn" class="btn btn-info" aria-label="JSONファイルからインポート">インポート</button>
+                </div>
             </div>
             <div id="order-list" class="order-list" role="listbox" aria-label="オーダー一覧" aria-describedby="order-help">
                 <!-- オーダー一覧がここに表示される -->
@@ -101,6 +104,10 @@
     <script src="js/repository.js"></script>
     <script src="js/timer.js"></script>
     <script src="js/report.js"></script>
+    <script src="js/import-error-handler.js"></script>
+    <script src="js/import.js"></script>
+    <script src="js/import-ui.js"></script>
+    <script src="js/import-test.js"></script>
     <script src="js/error-handler.js"></script>
     <script src="js/performance-optimizer.js"></script>
     <script src="js/ui.js"></script>
